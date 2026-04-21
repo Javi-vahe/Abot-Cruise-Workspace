@@ -639,3 +639,12 @@ roslaunch robot_slam multi_goal.launch
 5. **部分参数针对比赛场地硬编码**，换场地必须重新标定目标点与中点坐标。
 
 ---
+
+## 🙏 Acknowledgments / 致谢
+
+本项目在开发过程中，使用了以下优秀的开源项目/功能包，特此向原作者表示感谢：
+
+* **[JIE WARE ROS 工具集 (jie_ware)](https://github.com/6-robot/jie_ware)**
+  * **Author:** 6-Robot (阿杰)
+  * **License:** GPL-2.0 License
+  * **Usage in this project:** 本项目使用了该工具集提供的基础 2D 激光雷达点云滤波与代价地图清除功能，并在其基础上针对赛事的高速移动场景进行了深度的参数调优与二次开发。
