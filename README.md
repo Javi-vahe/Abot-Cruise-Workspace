@@ -263,7 +263,7 @@ roslaunch robot_slam multi_goal.launch
 - `params/base_params.yaml`
 - `params/base_params_with_imu.yaml`
 
-已识别参数：
+部分主要参数：
 
 ```yaml
 port: /dev/abot
