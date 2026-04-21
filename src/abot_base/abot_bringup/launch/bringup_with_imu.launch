@@ -1,0 +1,44 @@
+<launch>
+    <node name="abot_driver" pkg="abot_bringup" type="abot_driver" output="screen">
+        <rosparam file="$(find abot_bringup)/params/base_params_with_imu.yaml" command="load"/>
+    </node>
+
+    <node pkg="abot_imu" type="abot_imu" name="abot_imu" output="screen" respawn="false">
+        <rosparam>
+            imu/accelerometer_bias: {x: 0.005436, y: 0.014684, z: -0.395418}
+            imu/gyroscope_bias: {x: -0.035592, y: 0.080670, z: 0.001216}
+        </rosparam>
+        <param name="imu/perform_calibration" value="true" />
+    </node>
+
+    <node pkg="tf" type="static_transform_publisher" name="base_imu_to_base_link"
+        args="0.04 0 0 0 0  0 /base_link /imu_link 40" />  
+    <!-- <node pkg="tf" type="static_transform_publisher" name="base_laser_to_base_link"
+        args="0.06 0 0.19 0 0 0 /laser_link /imu_link 40" />   -->
+
+
+    <node pkg="imu_filter_madgwick" type="imu_filter_node" name="imu_filter_madgwick" output="screen" respawn="false" >
+        <param name="use_mag" value="false" />
+        <param name="gain" value="0.1" />
+        <param name="zeta" value="0.5" />
+        <param name="publish_tf" value="false" />
+    </node>
+
+   <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf" output="screen">
+        <param name="output_frame" value="odom" />
+        <param name="base_footprint_frame" value="base_footprint"/>
+        <param name="freq" value="200.0"/>
+        <param name="sensor_timeout" value="1.0"/>  
+        <param name="odom_used" value="true"/>
+        <param name="imu_used" value="true"/>
+        <param name="vo_used" value="false"/>
+        <param name="debug" value="false"/>
+        <remap from="odom" to="wheel_odom" /><!--监听的topic-->
+        <remap from="imu_data" to="imu/data" /><!--监听的topic-->
+    </node> 
+
+    <node pkg="abot_bringup" type="odom_ekf.py" name="odom_ekf" output="screen">
+        <remap from="input" to="robot_pose_ekf/odom_combined"/><!--sub topic-->
+        <remap from="output" to="odom"/><!--pub topic-->
+    </node> 
+</launch>

@@ -1,0 +1,45 @@
+global_costmap:
+   global_frame: map
+   robot_base_frame: base_link
+
+   update_frequency: 1.0  #全局地图,通常会设定一个相对较小、在1.0到5.0之间的值。 单位为赫兹
+   publish_frequency: 0.5   #对于静态的全局地图来说,不需要不断发布
+   transform_tolerance: 0.5
+
+  #静态层
+   static_layer:
+      enabled: true
+#   #障碍物层
+#   obstacle_layer:
+#     enabled: true 
+#     obstructed_range: 5
+#     raytrace_range: 5.5
+#     max_obstacle_height: 2.0
+#     unknown_threshold: 15
+#     mark_threshold: 0 
+#     combination_method: 1
+#     track_unknown_space: true
+#     origin_z: 0.0
+#     z_resolution: 0.2
+#     z_voxels: 2
+#     publish_voxel_map: false
+#    #  observation_sources: base_scan
+#    #  base_scan: 
+#    #    data_type: LaserScan
+#    #    topic: scan_filtered
+#    #    marking: true
+#    #    clearing: true
+#    #    min_obstacle_height: 0.0
+#    #    max_obstacle_height: 2.0
+#    #    inf_is_valid: true
+
+  #膨胀层
+   inflation_layer:
+      enabled:              true
+      cost_scaling_factor:  10.0  # 由于在公式中cost_scaling_factor被乘了一个负数，所以增大比例因子反而会降低代价 (default: 10)
+      inflation_radius:     0.3   # 代价膨胀半径 (default: 0.55)
+
+   plugins:
+      - {name: static_layer,            type: "costmap_2d::StaticLayer"}
+      #  - {name: obstacle_layer,          type: "costmap_2d::VoxelLayer"}
+      - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}

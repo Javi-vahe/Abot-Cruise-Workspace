@@ -1,0 +1,12 @@
+<launch>
+	<!-- run the position_control.cpp -->
+
+	<node pkg="cam_track" type="cam_track_node" name="cam_track_node" output="screen">
+		
+	<!-- <param name="PID_Control_P" type="float" value="0.5" /> -->
+
+	<rosparam command="load" file="$(find cam_track)/param/PID.yaml" /> 
+
+	</node>
+</launch>
+

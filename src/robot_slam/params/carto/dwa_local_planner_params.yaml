@@ -1,0 +1,51 @@
+DWAPlannerROS:
+
+# Robot Configuration Parameters - Kobuki
+  max_vel_x: 2.0
+  min_vel_x: -1.8
+
+  max_vel_y: 2.0
+  min_vel_y: -1.8
+
+  max_vel_trans: 1.4
+  min_vel_trans: 0.1
+
+  max_vel_theta: 3.0
+  min_vel_theta: 0.5
+
+  acc_lim_x: 4.0
+  acc_lim_theta: 10.0
+  acc_lim_y: 4.0
+
+  xy_goal_tolerance: 0.18
+  yaw_goal_tolerance: 0.18
+  latch_xy_goal_tolerance: false
+
+# Forward Simulation Parameters
+  sim_time: 2.5       #前向模拟轨迹的时间，单位为s
+  vx_samples: 20      #x方向速度空间的采样点数
+  vy_samples: 20      #y方向速度空间的采样点数
+  vth_samples: 15     #旋转方向的速度空间采样点数
+  controller_frequency: 15.0
+
+# Trajectory Scoring Parameters
+  path_distance_bias: 80.0     #控制器与给定路径接近程度的权重
+  goal_distance_bias: 32.0    #控制器与局部目标点的接近程度的权重，也用于速度控制
+  occdist_scale: 0.07       # 控制器躲避障碍物的程度
+  forward_point_distance: 0.385 #以机器人为中心，额外放置一个计分点的距离
+  stop_time_buffer: 0.1 #机器人在碰撞发生前必须拥有的最少时间量。该时间内所采用的轨迹仍视为有效。即：为防止碰撞,机器人必须提前停止的时间长度
+  scaling_speed: 0.25   #开始缩放机器人足迹时的速度的绝对值，单位为m/s
+  # 在进行对轨迹各个点计算footprintCost之前，会先计算缩放因子。如果当前平移速度小于scaling_speed，则缩放因子为1.0，
+  # 否则，缩放因子为(vmag - scaling_speed) / (max_trans_vel - scaling_speed) * max_scaling_factor + 1.0。
+  # 然后，该缩放因子会被用于计算轨迹中各个点的footprintCost
+  max_scaling_factor: 1.0 #最大缩放因子
+
+# Oscillation Prevention Parameters
+  oscillation_reset_dist: 0.05  #机器人必须运动多少米远后才能复位震荡标记(机器人运动多远距离才会重置振荡标记)
+
+# Debugging
+  publish_traj_pc : true
+  publish_cost_grid_pc: true
+
+# Differential-drive robot configuration - necessary?
+  holonomic_robot: true

@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find usb_cam)/launch/usb_cam-test.launch" />
+  <node name="kcf_tracker" type="kcf_kalman_tracker.py" pkg="tracker_pkg" output="screen">
+    <param name="delta_width" value="480" />
+    <param name="delta_height" value="360" />
+  </node>
+</launch>

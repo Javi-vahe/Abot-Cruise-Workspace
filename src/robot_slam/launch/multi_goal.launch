@@ -1,0 +1,40 @@
+<launch>
+  <node name="multi_goal" pkg="robot_slam" type="navigation_multi_goals.py" output="screen">
+    <param name="goalList_X_Block_1" value="-0.312,   -0.246,  -1.000"/> <!--识别点1   1号目标点   2号目标点 --> 
+    <param name="goalList_Y_Block_1" value="0.451,    1.085 ,  0.288"/>
+    <param name="goalList_Yaw_Block_1" value="-0.038,  3.120 ,   3.120"/>
+
+    <param name="goalList_X_Block_2" value="-2.908,     -2.050,   -2.793"/> <!--识别点2   3号目标点   4号目标点 -->
+    <param name="goalList_Y_Block_2" value="0.343,      0.332,     1.081"/>
+    <param name="goalList_Yaw_Block_2" value="-3.063,   3.120,    -3.138"/>
+
+    <param name="goalList_X_Block_3" value="-2.900,   -2.854,   -2.115"/> <!--识别点3   5号目标点   6号目标点 -->
+    <param name="goalList_Y_Block_3" value="2.912,     2.120,   2.922"/>
+    <param name="goalList_Yaw_Block_3" value="-3.063,  -0.038,   -0.038"/>
+
+    <param name="goalList_X_Block_4" value="-0.205,     -1.058,   -0.310,   -0.019"/> <!--识别点4   7号目标点   8号目标点   终点-->
+    <param name="goalList_Y_Block_4" value="2.925,      2.895 ,    2.105,    3.187"/>
+    <param name="goalList_Yaw_Block_4" value="-0.009,   -0.010,   0.000,    -0.007"/>
+  </node>
+
+  <node name="cmd_vel_relay" pkg="robot_slam" type="cmd_vel_relay_node" output="screen"/>
+
+  <node name="adjust_server" pkg="robot_slam" type="adjust_server"> <!--output="screen"-->
+    <param name="loop_rate" value="20"/>
+    <param name="timeout" value="9.8"/>
+    <param name="xy_tolerance" value="0.006"/>
+    <param name="yaw_tolerance" value="0.05"/>
+    <param name="base_linear" value="2.5"/>
+    <param name="base_angular" value="3.14"/>
+    <param name="debug" value="false"/>
+  </node>
+  
+  <node name="formula" pkg="robot_slam" type="formula.py" output="screen"/>
+
+  <node name="block_judge" pkg="robot_slam" type="block_judge" output="screen"> 
+  <!--<node name="block_judge_rage" pkg="robot_slam" type="block_judge_rage" output="screen"> 这一行是启动狂暴模式（争分），上面那个是正常模式-->
+    <param name="mid_point_x" value="-1.53606"/>
+    <param name="mid_point_y" value="1.62314"/>
+  </node>
+
+</launch>

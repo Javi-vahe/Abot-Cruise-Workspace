@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find abot_bringup)/launch/bringup.launch"/>
+  <include file="$(find abot_bringup)/launch/model.launch"/>
+  <include file="$(find abot_bringup)/launch/rplidar.launch"/>
+</launch>

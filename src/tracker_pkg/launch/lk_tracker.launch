@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find usb_cam)/launch/usb_cam-test.launch" />
+  <node name="lk_tracker" type="lk_tracker.py" pkg="tracker_pkg" output="screen" >
+  </node>
+</launch>

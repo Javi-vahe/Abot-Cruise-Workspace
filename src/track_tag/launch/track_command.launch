@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="track_tag" type="ar_track" name="ar_track" output="screen">
+    <param name="distance_thres" type="double" value="0.9" />
+    <param name="kpx_track" type="double" value="1.0" />
+    <param name="kpz_track" type="double" value="20.0" />
+    <param name="track_thres_vel_x" type="double" value="0.05" />
+    <param name="track_thres_vel_z" type="double" value="0.05" />
+    <param name="track_max_vel_x" type="double" value="0.5" />
+    <param name="track_max_vel_z" type="double" value="0.5" />
+  </node>
+</launch>

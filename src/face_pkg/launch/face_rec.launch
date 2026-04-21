@@ -1,0 +1,5 @@
+<launch>
+  <node name="face_detector" type="face_rec.py" pkg="face_pkg" output="screen">
+    <param name="tts_topic" type="String" value="/robot_voice/tts_topic"/>
+  </node>
+</launch>

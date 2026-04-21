@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="abot_model">
+<!--*****************base_link************************-->
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0037371271395169 0.000509597410569076 0.0628578663830573"
+        rpy="0 0 0" />
+      <mass
+        value="0.734774769093734" />
+      <inertia
+        ixx="0.00304079703267396"
+        ixy="6.73701058783062E-08"
+        ixz="-6.50029706905171E-08"
+        iyy="0.0044781909611876"
+        iyz="-1.06452904751068E-07"
+        izz="0.00669492338035859" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_model/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+           rgba=" 0.22352 0.89019 0.77647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_model/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+<gazebo reference="base_link">
+    <material>Gazebo/Blue</material>
+</gazebo>
+<!--***************link_left_w**************************-->
+  <link
+    name="link_left_w">
+    <inertial>
+      <origin
+        xyz="-2.9684E-05 0.011721 -0.000134"
+        rpy="0 0 0" />
+      <mass
+        value="0.17861" />
+      <inertia
+        ixx="0.00013111"
+        ixy="1.88E-20"
+        ixz="-2.588E-10"
+        iyy="0.00019458"
+        iyz="7.7371E-21"
+        izz="0.00013112" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_model/meshes/link_left_w.STL" />
+      </geometry>
+      <material
+        name="">
+        <color rgba="0 0 0 0.95"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_model/meshes/link_left_w.STL" />
+      </geometry>
+    </collision>
+  </link>
+<gazebo reference="link_left_w">
+    <material>Gazebo/Grey</material>
+</gazebo>
+<!--***************joint_left_w*************************-->
+  <joint
+    name="joint_left_w"
+    type="continuous">
+    <origin
+      xyz="0.12024 0.10802 0.028264"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_left_w" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+<!--*****************link_left_s************************-->
+  <link
+    name="link_left_s">
+    <inertial>
+      <origin
+        xyz="0.00125052664950205 0.00847211983876833 -0.000229470863907809"
+        rpy="0 0 0" />
+      <mass
+        value="0.178614693254775" />
+      <inertia
+        ixx="0.00013111186774341"
+        ixy="2.1852675113639E-21"
+        ixz="-2.58804125525198E-10"
+        iyy="0.000194584383981263"
+        iyz="7.23887751890145E-21"
+        izz="0.000131123764185488" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_model/meshes/link_left_s.STL" />
+      </geometry>
+      <material
+        name="">
+        <color rgba="0 0 0 0.95"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_model/meshes/link_left_s.STL" />
+      </geometry>
+    </collision>
+  </link>
+<gazebo reference="link_left_s">
+    <material>Gazebo/Grey</material>
+</gazebo>
+<!--*****************joint_left_s************************-->
+  <joint
+    name="joint_left_s"
+    type="continuous">
+    <origin
+      xyz="-0.12144 0.11128 0.028375"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_left_s" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+<!--****************link_right_w*************************-->
+  <link
+    name="link_right_w">
+    <inertial>
+      <origin
+        xyz="-2.56394994314069E-05 -0.00965975962140743 -8.89294989246357E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.178614693254775" />
+      <inertia
+        ixx="0.000131111867743409"
+        ixy="-1.43666298330474E-21"
+        ixz="-2.58804125525959E-10"
+        iyy="0.000194584383981263"
+        iyz="1.54361367158865E-21"
+        izz="0.000131123764185487" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_model/meshes/link_right_w.STL" />
+      </geometry>
+      <material
+        name="">
+        <color rgba="0 0 0 0.95"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_model/meshes/link_right_w.STL" />
+      </geometry>
+    </collision>
+  </link>
+<gazebo reference="link_right_w">
+    <material>Gazebo/Grey</material>
+</gazebo>
+<!--******************joint_right_w***********************-->
+  <joint
+    name="joint_right_w"
+    type="continuous">
+    <origin
+      xyz="0.12024 -0.10899 0.028264"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_right_w" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+<!--******************link_right_s***********************-->
+  <link
+    name="link_right_s">
+    <inertial>
+      <origin
+        xyz="-1.7496E-07 -0.011748 8.117E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.17861" />
+      <inertia
+        ixx="0.00013111"
+        ixy="5.8527E-21"
+        ixz="-2.588E-10"
+        iyy="0.00019458"
+        iyz="-3.2413E-21"
+        izz="0.00013112" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_model/meshes/link_right_s.STL" />
+      </geometry>
+      <material
+        name="">
+       <color rgba="0 0 0 0.95"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_model/meshes/link_right_s.STL" />
+      </geometry>
+    </collision>
+  </link>
+<gazebo reference="link_right_s">
+    <material>Gazebo/Grey</material>
+</gazebo>
+<!--******************joint_right_s***********************-->
+  <joint
+    name="joint_right_s"
+    type="continuous">
+    <origin
+      xyz="-0.12024 -0.10696 0.028161"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_right_s" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+
+<!--***************camera_link**************************-->
+  <link
+    name="camera_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_model/meshes/camera_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_model/meshes/camera_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+<gazebo reference="camera_link">
+    <material>Gazebo/Grey</material>
+</gazebo>
+<!--****************joint_camera*************************-->
+  <joint
+    name="joint_camera"
+    type="fixed">
+    <origin
+      xyz="0.130670132360421 0.000184007776624636 0.128393640072318"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera_link" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+
+<!--****************************laser_link**************************************-->
+<link name="laser_link">
+	<visual>
+	  <origin xyz="0 0 0" rpy="0 0 0"/>
+	  <geometry>
+		<cylinder radius="0.04" length="0.040"/>
+ 	  </geometry>
+	  <material name="black">
+	  	<color rgba="0 0 0 0.95"/> 
+	  </material>
+	</visual>	
+</link>
+<gazebo reference="laser_link">
+    <material>Gazebo/Black</material>
+</gazebo>
+<!--****************************laser_joint**************************************-->
+	<joint name="laser_joint" type="fixed">
+		<origin xyz="0.06 0 0.18" rpy="0 0 0"/>	
+		<parent link="base_link"/>
+		<child link="laser_link"/>
+	</joint>
+<!--*********************************base_footprint********************************** -->
+	<link name="base_footprint">
+	    <visual>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<geometry>
+		    <box size="0.001 0.001 0.001" />
+		</geometry>
+	    </visual>
+	</link>
+<!--*********************************base_footprint_joint********************************** -->
+	<joint name="base_footprint_joint" type="fixed">
+	    <origin xyz="0 0 0" rpy="0 0 0" />        
+	    <parent link="base_footprint"/>
+	    <child link="base_link" />
+	</joint>
+	<gazebo reference="base_footprint_joint">
+	    <turnGravityOff>false</turnGravityOff>
+	</gazebo>
+<!--*********************************base_imu********************************** -->
+	<link name="base_imu">
+	    <visual>
+		<origin xyz="0.001 0 0" rpy="0 0 0" />
+		<geometry>
+		    <box size="0.001 0.001 0.001" />
+		</geometry>
+	    </visual>
+	</link>
+<!--*********************************imu_joint********************************** -->
+	<joint name="imu_joint" type="fixed">
+	    <origin xyz="0 0 0" rpy="0 0 0" />        
+	    <parent link="base_link"/>
+	    <child link="base_imu" />
+	</joint>
+	<gazebo reference="imu_joint">
+	    <turnGravityOff>false</turnGravityOff>
+	</gazebo>
+<!--****************************laser_joint**************************************-->
+<gazebo reference="laser_link">
+    <sensor type="ray" name="rplidar">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>5.5</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>12.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_rplidar" filename=
+"libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>laser_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+<!--********************************* camera gazebo**********************************-->
+      <gazebo reference="camera_link">
+        <sensor type="camera" name="camera1">
+          <update_rate>100</update_rate>
+          <camera name="head">
+            <horizontal_fov>1.3962634</horizontal_fov>
+            <image>
+              <width>800</width>
+              <height>800</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.02</near>
+              <far>300</far>
+            </clip>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.007</stddev>
+            </noise>
+          </camera>
+          <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+           <alwaysOn>true</alwaysOn>
+            <updateRate>0.0</updateRate>
+            <cameraName>camera</cameraName>
+            <imageTopicName>image</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>camera_link</frameName>
+            <hackBaseline>0.07</hackBaseline>
+            <distortionK1>0.0</distortionK1>
+            <distortionK2>0.0</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.0</distortionT1>
+            <distortionT2>0.0</distortionT2>
+          </plugin>
+        </sensor>
+      </gazebo>
+
+ <!--gazebo>
+  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+
+    <alwaysOn>true</alwaysOn>
+    <robotNamespace>/</robotNamespace>
+    <updateRate>100</updateRate>
+    <leftFrontJoint>joint_left_w</leftFrontJoint>
+    <rightFrontJoint>joint_right_w</rightFrontJoint>
+    <leftRearJoint>joint_left_s</leftRearJoint>
+    <rightRearJoint>joint_right_s</rightRearJoint>
+
+    <wheelSeparation>0.090</wheelSeparation> 
+    <wheelDiameter>0.090</wheelDiameter>
+    <torque>1</torque>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <robotBaseFrame>base_footprint</robotBaseFrame>
+    <broadcastTF>1</broadcastTF> 
+
+  </plugin>
+</gazebo-->
+</robot>

@@ -1,0 +1,16 @@
+<launch>
+
+    <node pkg="pid_follow_planner" type="pid_follow_planner" name="pid_follow_planner" respawn="true" output="screen" >
+        <param name="global_frame" value="map"/>
+        <param name="plan_frequency" value="20"/>
+        <param name="max_x_speed" value="1"/>
+        <param name="max_y_speed" value="1"/>
+        <param name="goal_dist_tolerance" value="0.1"/>
+        <param name="prune_ahead_distance" value="0.6"/>
+        <param name="p_value" value="1.5"/>
+        <param name="i_value" value="1.0"/>
+        <param name="d_value" value="1.0"/>
+        <remap from="/cmd_vel_origin" to="/cmd_vel_origin" />
+    </node>
+
+</launch>

@@ -1,0 +1,19 @@
+<launch>
+    <arg name="gui" default="true"/>
+    <arg name="image_topic" default="/usb_cam/image_raw"/>
+    <arg name="objects_path" default="/home/abot/abot_ws/src/abot_find/object"/>
+    <arg name="settings_path" default="~/.ros/find_object_2d.ini"/>
+
+	<!-- Nodes -->
+	<node name="find_object_2d" pkg="find_object_2d" type="find_object_2d">
+		<remap from="image" to="$(arg image_topic)"/>
+		<param name="gui" value="$(arg gui)" type="bool"/>
+		<param name="objects_path" value="$(arg objects_path)" type="str"/>
+		<param name="settings_path" value="$(arg settings_path)" type="str"/>
+	</node>
+
+	<node name="print_objects_detected" pkg="find_object_2d" type="print_objects_detected" output="screen" />
+	<include file="$(find track_tag)/launch/usb_cam_with_calibration.launch" />
+
+	
+</launch>

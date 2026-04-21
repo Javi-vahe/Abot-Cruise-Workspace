@@ -1,0 +1,13 @@
+PID_Control_P : 0.5
+
+Max_yaw_vel : 0.2
+
+yaw_th : 0.02
+
+A_x : 1.5
+A_y : -0.53
+
+B_x : 1.5
+B_y : -2.2
+
+vel_th : 0.0008

@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="abot_imu" type="abot_imu" name="abot_imu" output="screen" respawn="false" />
+
+  <node pkg="imu_filter_madgwick" type="imu_filter_node" name="imu_filter_madgwick" output="screen" respawn="false" />
+
+</launch>

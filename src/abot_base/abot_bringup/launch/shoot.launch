@@ -1,0 +1,4 @@
+<launch>
+  <node name="shoot" pkg="abot_bringup" type="shoot.py" output="screen">
+  </node>
+</launch>

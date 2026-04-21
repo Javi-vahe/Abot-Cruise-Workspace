@@ -1,0 +1,21 @@
+<launch>
+    <node name="abot_driver" pkg="abot_bringup" type="abot_driver" output="screen">
+        <rosparam file="$(find abot_bringup)/params/base_params.yaml" command="load"/>
+    </node>
+    <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf" output="screen">
+        <param name="output_frame" value="odom" />
+        <param name="base_footprint_frame" value="base_footprint"/>
+        <param name="freq" value="200.0"/>
+        <param name="sensor_timeout" value="1.0"/>  
+        <param name="odom_used" value="true"/>
+        <param name="imu_used" value="false"/>
+        <param name="vo_used" value="false"/>
+        <param name="debug" value="false"/>
+        <remap from="odom" to="wheel_odom" /><!--监听的topic-->
+        <remap from="imu_data" to="imu/data" /><!--监听的topic-->
+    </node> 
+    <node pkg="abot_bringup" type="odom_ekf.py" name="odom_ekf" output="screen">
+        <remap from="input" to="robot_pose_ekf/odom_combined"/><!--sub topic-->
+        <remap from="output" to="odom"/><!--pub topic-->
+    </node> 
+</launch>

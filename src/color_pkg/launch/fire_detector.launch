@@ -1,0 +1,8 @@
+<launch>
+  <include file="$(find usb_cam)/launch/usb_cam-test.launch" />
+  <node name="detect_fire" type="fire_detector.py" pkg="color_pkg" output="screen">
+    <param name="tts_topic" type="String" value="/robot_voice/tts_topic"/>
+    <param name="red_min" value="255,114,116" />
+    <param name="red_max" value="255,255,186" />
+  </node>
+</launch>

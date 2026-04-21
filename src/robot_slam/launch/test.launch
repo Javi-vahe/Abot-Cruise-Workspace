@@ -1,0 +1,5 @@
+<launch>
+    
+    <node name="ascii_art" pkg="robot_slam" type="ascii_art.py" output="screen"/>
+  
+  </launch>
