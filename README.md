@@ -10,6 +10,16 @@
   <img alt="Status" src="https://img.shields.io/badge/Use-Competition%20Robot-red" />
 </p>
 
+## 系统架构
+
+<p align="center">
+  <img src="docs/architecture.jpg" alt="Abot Cruise Architecture" width="1200">
+</p>
+
+<p align="center">
+  <i>Overall architecture of the CRAIC National First Prize competition robot.</i>
+</p>
+
 ## 目录
 
 - [1. 项目简介](#项目简介)
