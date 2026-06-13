@@ -13,7 +13,7 @@
 ## 系统架构
 
 <p align="center">
-  <img src="image.png" alt="Abot Cruise Architecture" width="1200">
+  <img src="docs/architecture.png" alt="Abot Cruise Architecture" width="1200">
 </p>
 
 <p align="center">
